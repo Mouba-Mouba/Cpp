@@ -1,0 +1,48 @@
+MOHAMED MOUBARAK MOHAMED MISBAHOU MKOUBOI(1820705)
+
+// Exercise 1
+//Declare an array to store a series of 12 numbers and display an output in a table
+#include <iostream>
+#include <iomanip>
+
+using std::setw;
+
+using namespace std;
+
+int main( )
+{
+int a[12] = {1,2,3,4,5,6,7,8,9,10,11,12};
+int index;
+cout << "Index " << setw(10) << "Content" << setw(35) << "Address"<< setw(3) << endl;
+for (index = 0; index < 12; index++)
+cout << index << setw(10) << a[index] << setw(35) << &a[index] <<setw(3) << endl ;
+cout << endl;
+
+return 0;
+}
+
+//Declare a pointer based class or structure and assigned a series of 12 numbers and display the output
+
+struct point
+{
+int x;
+};
+int main( )
+{
+
+struct point a[12];
+struct point *b=&a[12];
+int index;
+for (index = 0; index < 12; index++)
+b[index].x = index+1;
+
+
+cout << "Index " << setw(10) << "Content" << setw(35) << "Address"<< setw(3) << endl;
+for (index = 0; index < 12; index++)
+cout << index << setw(10) << b[index].x << setw(35) << b+index <<setw(3) << endl ;
+b++;
+cout << endl;
+return 0;
+}
+
+//The nature of addresses in both the cases is 4 bits for integer represented in each values

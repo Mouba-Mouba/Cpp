@@ -1,0 +1,59 @@
+#include<iostream>
+#include<string>
+using namespace std;
+struct node {
+int value;
+node* left;
+node* right;
+};
+node* createNode(int child){
+
+node* newNode = new node;
+newNode->value = child;
+newNode->left = NULL;
+newNode->right = NULL;
+
+return newNode;
+}
+void insertLeft(node *root, int child) {
+root->left = createNode(child);
+}
+void insertRight(node *root, int child){
+root->right = createNode(child);
+}
+void inorder(node* root){
+if(root == NULL) return;
+inorder(root->left);
+cout << root->value << " / ";
+inorder(root->right);
+}
+void preorder( node* root){
+if(root == NULL) return;
+cout << root->value << " / ";
+preorder(root->left);
+preorder(root->right);
+}
+void postorder(node* root) {
+if(root == NULL) return;
+postorder(root->left);
+postorder(root->right);
+cout << root->value << " / ";
+}
+int main(){
+node* root = createNode(55);
+insertLeft(root,31 );
+insertRight(root, 63);
+insertLeft(root->left, 17);
+insertRight(root->right, 40);
+insertRight(root->left->right, 22);
+insertRight(root->left->right->right, 22);
+
+cout << "Inorder traversal :  " << endl;
+inorder(root);
+cout << "" << endl;
+cout << "\nPreorder traversal :"<< endl;
+preorder(root);
+cout << "" << endl;
+cout << "\nPostorder traversal :"<< endl;
+postorder(root);
+}

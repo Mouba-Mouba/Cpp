@@ -1,0 +1,49 @@
+#include <iostream>
+#include <vector>
+
+//Question 2
+//using structure to store Players
+struct Player{
+    int id=-1;
+};
+
+int main()
+{
+    //array odd structurer player
+    struct Player player[3];
+    int count=0;
+    //interning element
+    player[0].id=596;
+    cout<<"inserted!"<<endl;
+    player[1].id=132;
+    cout<<"inserted!"<<endl;
+    player[2].id=328;
+    cout<<"inserted!"<<endl;
+
+    for(int i=0;i<3;i++){
+      if(player[i].id!=-1){
+          count++;
+      }
+    }
+
+    cout<<"Number of Players :"<<count<<endl;
+
+    for(int i=0;i<3;i++){
+      if(player[i].id!=-1){
+          cout<<player[i].id<<" ";
+      }
+    }
+    cout<<endl;
+    //dropping element
+    cout<<"Dropped!"<<endl;
+    count=count-1;
+    player[0].id=-1;
+    cout<<"Number of Players :"<<count<<endl;
+    for(int i=0;i<3;i++){
+      if(player[i].id!=-1){
+          cout<<player[i].id<<" ";
+      }
+    }
+
+    return 0;
+}

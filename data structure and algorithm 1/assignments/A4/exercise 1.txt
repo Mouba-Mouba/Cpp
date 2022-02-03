@@ -1,0 +1,133 @@
+MOHAMED MOUBARAK MOHAMED MISBAHOU MKOUBOI(1820705)
+
+#include <iostream>
+#include <iomanip>
+using namespace std;
+
+
+struct Staff{
+  string name;
+  int staff_no;
+  string fac_div;
+  int age;
+};
+
+
+class StaffArray{
+private:
+    int size;
+    int indx;
+
+
+
+public:
+    StaffArray(int size)
+    {
+        this->size = size;
+        indx = 0;
+        staffs = new Staff[size];
+    }
+
+
+    bool isEmpty()
+    {
+        if(indx-1 < 0) return true;
+        else return false;
+    }
+
+
+    bool isFull()
+    {
+        if(indx == size) return true;
+        else return false;
+    }
+
+
+    Staff top() {
+        Staff staff; //create object staff of type Staff
+        if(isEmpty())
+        {
+            cout << "Stack is empty" << endl;
+        }
+        else{
+
+            staff = staffs[indx-1]; //later, assign staff array of index top
+        }
+
+
+        return staff;
+    }
+
+
+    void push(string a, int b, string c, int d)
+    {
+        if(isFull())
+        {
+            cout << "Stack is full" << endl;
+            return;
+        }
+        else
+        {
+            Staff staff;
+            staff.name = a;
+            staff.staff_no = b;
+            staff.fac_div = c;
+            staff.age = d;
+
+
+            staffs[indx] = staff;
+            indx++;
+            cout << "INSERTED" << endl<<endl;
+        }
+    }
+
+
+    Staff pop()
+    {
+        Staff staff;
+        if(isEmpty())
+        {
+           cout << "Stack is empty" << endl;
+        }
+        else{
+
+             staff = staffs[indx-1];
+              indx--;
+        }
+
+
+        return staff;
+    }
+
+};
+
+
+int main()
+{
+    StaffArray obj(3);
+
+    if(obj.isEmpty())
+        cout << "Stack is empty" << endl<<endl;
+
+    cout << "Insert element 1" << endl;
+    sobj.push("Zulfakar", 149 , "Law", 50);
+
+
+    cout << "Insert element 2" << endl;
+    obj.push("Ooi Ji Woo", 637 , "Agriculture", 42);
+
+    cout << "Insert element 3" << endl;
+ 	obj.push("Abdullah", 721 , "Economics", 26);
+
+	Staff staff = obj.top();
+
+	//print all staffs' detail, at the same time pop them all
+	while(!obj.isEmpty())
+	{
+		staff = obj.pop(); //whenever pop, the popped index that hv been safe in staff will be used
+		cout << "Name: " << staff.name << endl
+         << "Staff number: " <<staff.staff_no  << endl
+         << "Faculty/Division: " <<staff.fac_div<< endl
+         << "Age: " << staff.age << endl;
+    	cout << endl;
+	}

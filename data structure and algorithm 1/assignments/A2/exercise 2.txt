@@ -1,0 +1,22 @@
+MOHAMED MOUBARAK MOHAMED MISBAHOU MKOUBOI(1820705)
+
+// EXERCISE 2
+
+#include<iostream>
+using namespace std;
+
+int main(){
+    int arr[5] ;
+    cout<<"Enter five integers: ";
+    for(int i=0;i<5;i++){
+        cin >> arr[i];
+   }
+
+   cout<<"Printing array ... \n";
+   for(int i=0;i<5;i++){
+        cout<<"Index Value: "<<i
+          <<", Content: "<<arr[i]<<endl;
+
+   }
+   return 0;
+}
